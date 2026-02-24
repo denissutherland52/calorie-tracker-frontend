@@ -1,7 +1,7 @@
 const fs = require('fs');
 const csv = require('csv-parser');
 
-const dietLogPath = require('path').resolve(process.env.HOME, '.openclaw/agents/bri/workspace/DIET_LOG.csv');
+const dietLogPath = require('path').resolve(process.env.HOME, 'workspaces/bri/DIET_LOG.csv');
 const outputPath = './public/data.json';
 
 const today = new Date().toISOString().slice(0, 10);
