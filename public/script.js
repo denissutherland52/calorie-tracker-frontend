@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('/api/calories')
+    fetch('data.json')
         .then(response => response.json())
         .then(data => {
-            document.getElementById('calorie-count').textContent = data.calories;
+            document.getElementById('calorie-count').textContent = `${data.totalCalories} / ${data.targetCalories}`;
         })
         .catch(error => {
             console.error('Error fetching calorie data:', error);
