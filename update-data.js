@@ -6,7 +6,7 @@ const outputPath = './public/data.json';
 
 const today = new Date().toISOString().slice(0, 10);
 let totalCalories = 0;
-const targetCalories = 2000; // Assuming a target of 2000 calories
+const targetCalories = 1880; // Assuming a target of 1880 calories
 
 fs.createReadStream(dietLogPath)
   .pipe(csv())
