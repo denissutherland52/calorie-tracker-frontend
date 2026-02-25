@@ -11,7 +11,7 @@ A visual calorie tracking web application hosted on GitHub Pages, deeply integra
 The frontend is not updated manually. Instead, it is driven autonomously by specialized AI subagents within the OpenClaw ecosystem.
 
 ### 1. Bri (Wellness Coach Subagent)
-Bri is a specialized agent responsible for managing the user's diet and wellness. Her core directives (`SOUL.md`) instruct her to:
+Bri is a specialized agent responsible for managing the user's diet and wellness. Her core directives ([BRI_SOUL.md](./BRI_SOUL.md)) instruct her to:
 - Intercept user messages regarding food intake.
 - **Visual & Textual Interpretation:** Automatically estimate the caloric value of meals by processing natural language descriptions or directly analyzing uploaded photos of the user's food.
 - **Interactive Coaching:** Engage in a back-and-forth dialogue with the user to clarify portion sizes or ingredients, ensuring accurate calorie calculations before logging.
