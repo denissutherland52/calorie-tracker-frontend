@@ -21,8 +21,8 @@ fs.createReadStream(dietLogPath)
       targetCalories,
     };
 
-    if (!fs.existsSync('./public')) {
-      fs.mkdirSync('./public');
+    if (!fs.existsSync('./docs')) {
+      fs.mkdirSync('./docs');
     }
 
     fs.writeFileSync(outputPath, JSON.stringify(data, null, 2));
