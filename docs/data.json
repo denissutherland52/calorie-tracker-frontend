@@ -1,4 +1,12 @@
 {
-  "totalCalories": 707,
-  "targetCalories": 1880
+  "meta": {
+    "date": "2026-02-25"
+  },
+  "stats": {
+    "total": 707,
+    "target": 1880,
+    "remaining": 1173,
+    "percent": 38
+  },
+  "shareString": "*FUEL MANIFEST: 2026-02-25*\n\nCURRENT: 707 / 1880 KCAL\nREMAINING: 1173\n\n[ 🟩🟩🟩🟩⬜⬜⬜⬜⬜⬜ ]\n"
 }
