@@ -3,10 +3,10 @@
     "date": "2026-02-25"
   },
   "stats": {
-    "total": 2174,
+    "total": 2581,
     "target": 1880,
-    "remaining": -294,
+    "remaining": -701,
     "percent": 100
   },
-  "shareString": "*FUEL MANIFEST: 2026-02-25*\n\nCURRENT: 2174 / 1880 KCAL\nREMAINING: -294\n\n[ 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩 ]\n"
+  "shareString": "*FUEL MANIFEST: 2026-02-25*\n\nCURRENT: 2581 / 1880 KCAL\nREMAINING: -701\n\n[ 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩 ]\n"
 }
