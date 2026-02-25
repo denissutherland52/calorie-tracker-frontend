@@ -16,9 +16,28 @@ fs.createReadStream(dietLogPath)
     }
   })
   .on('end', () => {
+    const remaining = targetCalories - totalCalories;
+    const percent = Math.min(100, Math.round((totalCalories / targetCalories) * 100));
+    
+    // Create share string
+    const blockCount = Math.round((percent / 100) * 10);
+    let blocks = '';
+    for (let i = 0; i < 10; i++) {
+        blocks += (i < blockCount) ? '🟩' : '⬜';
+    }
+    const shareString = `*FUEL MANIFEST: ${today}*\n\nCURRENT: ${totalCalories} / ${targetCalories} KCAL\nREMAINING: ${remaining}\n\n[ ${blocks} ]\n`;
+
     const data = {
-      totalCalories,
-      targetCalories,
+      meta: {
+        date: today
+      },
+      stats: {
+        total: totalCalories,
+        target: targetCalories,
+        remaining: remaining,
+        percent: percent
+      },
+      shareString: shareString
     };
 
     if (!fs.existsSync('./docs')) {
