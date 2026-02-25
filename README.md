@@ -1,5 +1,7 @@
 # FUEL MANIFEST (Calorie Tracker Frontend)
 
+![OpenClaw](https://img.shields.io/badge/OpenClaw-Ecosystem-orange?style=flat-square)
+
 A visual calorie tracking web application hosted on GitHub Pages, deeply integrated with the **OpenClaw Agent Framework** to provide a seamless end-to-end tracking experience via WhatsApp.
 
 ---
@@ -60,3 +62,7 @@ Here is how the automated workflow executes in real-time, completely hands-free 
 3. **GitHub Pages Setup:**
     - Branch: `master`
     - Source folder: `/docs`
+
+---
+
+**Tags:** #openclaw #agent-framework #automation #wellness
