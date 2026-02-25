@@ -32,7 +32,7 @@ Once Bri adds an entry to the CSV, she executes a global bash script (`sync-trac
 Here is how the automated workflow executes in real-time, completely hands-free from the user's perspective:
 
 1. **Input:** The user sends a casual WhatsApp message: _"I ate a big slice of pizza for dinner."_
-2. **Routing:** The main orchestrator agent (`Jock`) identifies this as a diet task and routes it to `Bri`.
+2. **Routing:** The system identifies this as a diet task and routes it to `Bri`.
 3. **Estimation:** Bri processes the natural language, estimates the slice at roughly 300-400 calories, and confirms the addition with the user.
 4. **Logging:** Bri executes a bash command to append `2026-02-25,Big slice of pizza,350` to `DIET_LOG.csv`.
 5. **Syncing:** Bri instantly executes `/home/clawbot/workspaces/global/sync-tracker.sh`.
