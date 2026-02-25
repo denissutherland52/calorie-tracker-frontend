@@ -11,7 +11,8 @@ The frontend is not updated manually. Instead, it is driven autonomously by spec
 ### 1. Bri (Wellness Coach Subagent)
 Bri is a specialized agent responsible for managing the user's diet and wellness. Her core directives (`SOUL.md`) instruct her to:
 - Intercept user messages regarding food intake.
-- Automatically estimate the caloric value of meals based on natural language descriptions (or image context, if provided).
+- **Visual & Textual Interpretation:** Automatically estimate the caloric value of meals by processing natural language descriptions or directly analyzing uploaded photos of the user's food.
+- **Interactive Coaching:** Engage in a back-and-forth dialogue with the user to clarify portion sizes or ingredients, ensuring accurate calorie calculations before logging.
 - Persist the data directly into a local CSV file.
 - Trigger the deployment and delivery pipeline automatically upon confirmation.
 
@@ -39,10 +40,10 @@ Here is how the automated workflow executes in real-time, completely hands-free 
 6. **Delivery:** The script pushes the JSON data to GitHub and instantly delivers a `🟩🟩🟩⬜⬜` stylized screenshot of the updated FUEL MANIFEST UI back to the WhatsApp chat.
 
 ### Recent Examples Processed:
+- **User:** _[Sends a photo of a plated meal]_ "I ate these"
+  - **Bri:** Interprets the photo as a full plate of chicken curry and rice. Engages the user to confirm portion size, estimates at 700 calories, and logs it. Script triggered. Output visual updated instantly with new progress blocks.
 - **User:** _"I ate a small apple."_
   - **Bri:** Estimated at 95 calories, logged to CSV, script triggered. Output visual: 707 / 1880 KCAL.
-- **User:** _"I ate a full plate of chicken curry and rice."_
-  - **Bri:** Estimated at 700 calories. Confirmed and logged. Script triggered. Output visual updated instantly with new progress blocks.
 
 ---
 
