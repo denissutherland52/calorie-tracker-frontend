@@ -2,16 +2,135 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calorie Tracker</title>
-    <link rel="stylesheet" href="style.css">
+    <title>FUEL_MANIFEST_v1</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f4f4f2; /* Off-white paper */
+            --ink: #1a1a1a;
+            --accent: #00cf45;
+            --border: 3px solid var(--ink);
+        }
+
+        body {
+            background-color: #e0e0e0;
+            font-family: 'JetBrains Mono', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* The "Receipt" Card */
+        .manifest {
+            background: var(--bg);
+            width: 380px;
+            padding: 2.5rem;
+            border: var(--border);
+            box-shadow: 15px 15px 0px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        header { border-bottom: var(--border); padding-bottom: 1rem; margin-bottom: 2rem; }
+        .title { font-weight: 800; font-size: 1.2rem; letter-spacing: -1px; }
+
+        .big-number { font-size: 4.5rem; font-weight: 800; line-height: 1; margin: 1rem 0; }
+        
+        /* The Block Bar (Mimicking Emoji Logic) */
+        .block-bar {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 4px;
+            margin: 1.5rem 0;
+        }
+        .block {
+            height: 30px;
+            border: 2px solid var(--ink);
+            background: transparent;
+        }
+        .block.filled { background: var(--ink); } /* High contrast black blocks */
+
+        .details { font-size: 0.9rem; line-height: 1.6; }
+        .row { display: flex; justify-content: space-between; border-bottom: 1px dashed #ccc; }
+
+        button {
+            margin-top: 2rem;
+            width: 100%;
+            padding: 1rem;
+            background: var(--ink);
+            color: white;
+            border: none;
+            font-family: inherit;
+            font-weight: 800;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+        button:active { transform: translateY(3px); }
+        button:hover { background: var(--accent); color: var(--ink); }
+    </style>
 </head>
 <body>
-    <h1>Calorie Tracker</h1>
-    <div id="calorie-display">
-        <h2>Today's Calorie Count</h2>
-        <p id="calorie-count">Loading...</p>
+
+<div class="manifest">
+    <header>
+        <div class="title">FUEL // MANIFEST</div>
+        <div id="date" style="font-size: 0.7rem;">0000-00-00</div>
+    </header>
+
+    <div class="details">
+        <div class="label">CURRENT_CONSUMPTION</div>
+        <div class="big-number" id="total-val">0</div>
     </div>
-    <script src="script.js"></script>
+
+    <div class="block-bar" id="block-bar">
+        </div>
+
+    <div class="details">
+        <div class="row"><span>TARGET_LIMIT</span><span id="target-val">0</span></div>
+        <div class="row"><span>REMAINING</span><span id="rem-val">0</span></div>
+        <div class="row"><span>STATUS</span><span id="status-val">...</span></div>
+    </div>
+
+    <button onclick="copyForWhatsApp()">COPY FOR WHATSAPP</button>
+</div>
+
+<script>
+    let currentShareString = "";
+
+    async function loadData() {
+        const res = await fetch('./data.json');
+        const data = await res.json();
+        const s = data.stats;
+
+        document.getElementById('date').innerText = data.meta.date;
+        document.getElementById('total-val').innerText = s.total;
+        document.getElementById('target-val').innerText = s.target;
+        document.getElementById('rem-val').innerText = s.remaining;
+        document.getElementById('status-val').innerText = s.total > s.target ? "OVER_LIMIT" : "STABLE";
+        currentShareString = data.shareString;
+
+        // Render the 10-block bar
+        const container = document.getElementById('block-bar');
+        container.innerHTML = '';
+        const filledCount = Math.round((s.percent / 100) * 10);
+        
+        for(let i=0; i<10; i++) {
+            const block = document.createElement('div');
+            block.className = `block ${i < filledCount ? 'filled' : ''}`;
+            container.appendChild(block);
+        }
+    }
+
+    function copyForWhatsApp() {
+        navigator.clipboard.writeText(currentShareString);
+        const btn = document.querySelector('button');
+        btn.innerText = "COPIED!";
+        setTimeout(() => btn.innerText = "COPY FOR WHATSAPP", 2000);
+    }
+
+    loadData();
+</script>
+
 </body>
 </html>
