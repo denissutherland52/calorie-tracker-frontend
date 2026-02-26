@@ -1,12 +1,12 @@
 {
   "meta": {
-    "date": "2026-02-25"
+    "date": "2026-02-26"
   },
   "stats": {
-    "total": 1825,
+    "total": 0,
     "target": 1880,
-    "remaining": 55,
-    "percent": 97
+    "remaining": 1880,
+    "percent": 0
   },
-  "shareString": "*FUEL MANIFEST: 2026-02-25*\n\nCURRENT: 1825 / 1880 KCAL\nREMAINING: 55\n\n[ 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩 ]\n"
+  "shareString": "*FUEL MANIFEST: 2026-02-26*\n\nCURRENT: 0 / 1880 KCAL\nREMAINING: 1880\n\n[ ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ ]\n"
 }
